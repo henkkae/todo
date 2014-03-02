@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="lane-wrapper" ng-repeat="lane in lanes | orderBy:'orderno'">
+		<div class="col-sm-4" ng-controller="LaneController">
+			<div class="lane">
+				<h2 ng-click="editing = true;">
+					<span ng-hide="editing">{{lane.name}}</span>
+					<input type="text" ng-model="lane.name" ng-show="editing" focus="editing" ng-blur="save(); editing = false;" required />
+				</h2>
+				<ul class="tasks" ui-sortable="sortableOptions" ng-model="lane.tasks">
+					<li class="task" ng-mouseover="hovering = true;" ng-model="lane.tasks.task" ng-mouseleave="hovering = false;"
+							ng-repeat="task in lane.tasks" ng-click="task.editing = true;">
+							<span ng-hide="task.editing">{{task.name}}</span>
+							<input type="text" ng-model="task.name" ng-show="task.editing" focus="task.editing" ng-blur="save(); task.editing = false;" required />
+							<i class="fa fa-times pull-right" ng-show="hovering && !task.editing" ng-click="deleteTask($index)" tooltip="delete task" tooltip-trigger="mouseenter" tooltip-placement="right"></i>
+						</li>
+				</ul>
+			</div>
+			<a href="#" style="" class="add-task fa fa-plus fa-2x"  ng-click="addTask($index);" tooltip="add task" tooltip-trigger="mouseenter" tooltip-placement="bottom"></a>
+		</div>
+	</div>
+</div>

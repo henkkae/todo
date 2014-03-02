@@ -1,0 +1,130 @@
+@main-color: #006266;
+@secondary-color: #78b8ba;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+
+  background: url('../images/bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo {
+  margin: 40px 0;
+}
+
+.toolbar {
+  margin: 50px 0;
+}
+
+.lane-wrapper > [class^="col-"] {
+  margin-bottom: 20px;
+
+  .lane {
+    padding: 0px 10px 10px 10px; 
+    background-color: @secondary-color; 
+    color: white;
+
+    h2 {
+      padding: 15px 20px;
+      margin: 0 -10px 15px -10px;
+      background-color: @main-color;
+      font-weight: 300;
+      text-transform: lowercase;
+
+      input {
+        width: 100%;
+        color: black;
+      }
+    }
+  }
+}
+
+.tasks {
+  padding: 0;
+  margin: 0;
+  min-height: 100px;
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed @main-color;
+
+  .task {
+    color: black;
+    list-style-type: none;
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 10px;
+    display: block;
+    cursor: url(https://mail.google.com/mail/images/2/openhand.cur), move;
+    position: relative;
+
+    &:not(.ng-scope) {
+      background-color: black;
+      opacity: 0.2;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:not(.ui-sortable-helper) {
+      span {
+        min-height: 20px;
+        display: block;
+        cursor: text;
+      }
+      &:hover {
+        background-color: #eee;
+      }
+    }
+
+    input {
+      width: 100%;
+    }
+
+    i {
+      color: red;
+      font-size: 1.4em;
+      position: absolute;
+      right: 15px;
+      top: 28%;
+      z-index: 10;
+
+      &:hover {
+        color: darkred;
+        cursor: pointer;
+      }
+    }
+
+    .ui-sortable-helper {
+      background-color: #fff;
+      -webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+      cursor: url(https://mail.google.com/mail/images/2/closedhand.cur) 8 8, move;
+    }
+  }
+}
+
+.add-task {
+  width: 100%; 
+  text-align: center; 
+  padding: 20px 1px 1px 1px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.modal img {
+  max-width: 100%;
+}
