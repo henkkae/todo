@@ -2,10 +2,6 @@
  * Author: Henri Hietala
  */
 
- function keke(){
- 	$('a[data-toggle="tooltip"]').tooltip();
- }
-
 // the global controller
 app.controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
 	// the very sweet go function is inherited to all other controllers
@@ -19,7 +15,6 @@ app.controller("ListController", ["$scope", "$resource", "apiUrl", function($sco
 	var Lanes = $resource(apiUrl + "/lanes"); // a RESTful-capable resource object
 	$scope.lanes = Lanes.query(); // for the list of tasks in public/html/main.html
 
-	$scope.$on('$viewContentLoaded', keke() );
 }]);
 
 
